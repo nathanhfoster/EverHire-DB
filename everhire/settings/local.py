@@ -14,8 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-
+DATA_UPLOAD_MAX_MEMORY_SIZE = 5242880
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
@@ -23,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 SECRET_KEY = '+9!j2(jk7v$7+0b1v(z9+3vnm(jb0u@&w68t#5_e8s9-lbfhv-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -53,11 +52,11 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
 
     'user',
+    'jobs',
     'corsheaders',
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -65,6 +64,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'everhire.urls'
@@ -87,7 +87,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'everhire.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
@@ -97,7 +96,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
@@ -142,15 +140,15 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, "static"),
-# )
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
 
-# STATIC_ROOT = os.path.join(BASE_DIR, "live-static", "static-root")
+STATIC_ROOT = os.path.join(BASE_DIR, "live-static", "static-root")
 
-# MEDIA_URL = "/media/"
+MEDIA_URL = "/media/"
 
-# MEDIA_ROOT = os.path.join(BASE_DIR, "live-static", "media-root")
+MEDIA_ROOT = os.path.join(BASE_DIR, "live-static", "media-root")
 
 # REST_FRAMEWORK = {
 #     'DEFAULT_PERMISION_CLASSES' : {'rest_framework.permissions.IsAuthenticated',},
@@ -182,5 +180,6 @@ CORS_ALLOW_HEADERS = (
         'accept',
         'origin',
         'authorization',
-        'x-csrftoken'
+        'x-csrftoken',
+        'cache-control',
 )
