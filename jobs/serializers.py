@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class JobSerializer(serializers.ModelSerializer):
     class Meta:
         model = Job
-        fields = ('id','title', 'slug', 'author', 'author_username', 'html', 'tags',
-        'date_created','last_modified', 'last_modified_by', 'last_modified_by_username', 'views'
+        fields = ('id', 'address', 'title', 'description', 'latitude', 'longitude', 'phone_number', 'author', 'author_username', 'tags',
+        'date_created','last_modified', 'last_modified_by', 'last_modified_by_username',
         )
         read_only_fields = ('date_created', 'date_modified, last_modified,last_modified_by')
