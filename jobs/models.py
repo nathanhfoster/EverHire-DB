@@ -7,7 +7,7 @@ class Job(models.Model):
     description = models.TextField(null=True, blank=False)
     latitude = models.FloatField(null=True, blank=False)
     longitude = models.FloatField(null=True, blank=False)
-    phone_number = models.CharField(null=True, blank=False, max_length=10)
+    phone_number = models.CharField(null=True, blank=False, max_length=12)
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL, 
         related_name='jobAuthorName',
