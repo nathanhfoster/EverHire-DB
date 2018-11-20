@@ -3,6 +3,7 @@ from django.conf import settings
 
 class Job(models.Model):
     address = models.CharField(null=True, blank=False, max_length=250)
+    image = models.TextField(blank=True)
     title = models.CharField(null=True, blank=False, max_length=250)
     description = models.TextField(null=True, blank=False)
     lat = models.DecimalField(max_digits=17, decimal_places=14)
