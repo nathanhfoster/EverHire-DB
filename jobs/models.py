@@ -33,7 +33,7 @@ class Job(models.Model):
         settings.AUTH_USER_MODEL, 
         related_name='jobWorker',
         on_delete=models.CASCADE,
-        default=0)
+        null=True,)
 
     def last_modified_by_username(self):
         return self.last_modified_by. get_username()
