@@ -24,6 +24,11 @@ class Job(models.Model):
         related_name='jobModifier',
         on_delete=models.CASCADE,)
 
+    class Meta:
+        verbose_name = 'Job'
+        verbose_name_plural = 'Jobs'
+        ordering = ('-last_modified',)
+
     # 0 open post
     # -1 deleted
     # 1 in progress
