@@ -22,5 +22,17 @@ class Job(models.Model):
         settings.AUTH_USER_MODEL, 
         related_name='jobModifier',
         on_delete=models.CASCADE,)
+
+    # 0 open post
+    # -1 deleted
+    # 1 in progress
+    # 2 finished
+    status = models.SmallIntegerField(default=0)
+    worker = models.ForeignKey(
+        settings.AUTH_USER_MODEL, 
+        related_name='jobWorker',
+        on_delete=models.CASCADE,
+        default=0)
+
     def last_modified_by_username(self):
         return self.last_modified_by. get_username()
