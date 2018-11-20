@@ -5,8 +5,8 @@ class Job(models.Model):
     address = models.CharField(null=True, blank=False, max_length=250)
     title = models.CharField(null=True, blank=False, max_length=250)
     description = models.TextField(null=True, blank=False)
-    lat = models.FloatField(null=True, blank=False)
-    lng = models.FloatField(null=True, blank=False)
+    lat = models.DecimalField(max_digits=17, decimal_places=14)
+    lng = models.DecimalField(max_digits=17, decimal_places=14)
     phone_number = models.CharField(null=True, blank=False, max_length=12)
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL, 
