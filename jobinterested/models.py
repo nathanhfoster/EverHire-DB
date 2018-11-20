@@ -11,6 +11,5 @@ class Jobinterested(models.Model):
 	worker = models.ForeignKey(
 		settings.AUTH_USER_MODEL, 
         related_name='jobInterestedWorker',
-        on_delete=models.CASCADE,
-        default=0,)
+        on_delete=models.CASCADE,)
 	date_created = models.DateTimeField(auto_now_add=True)
