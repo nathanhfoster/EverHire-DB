@@ -33,6 +33,7 @@ class CustomAuthToken(ObtainAuthToken):
             'last_name': user.last_name,
             'is_active': user.is_active,
             'last_login': user.last_login,
+            'bio': user.bio,
         })
 
         

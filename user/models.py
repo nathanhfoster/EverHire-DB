@@ -23,6 +23,7 @@ class User(AbstractUser):
             'unique': ("A user with that username already exists."),
         },
     )
+    bio = models.CharField(null=True, max_length=500)
 
     @receiver(post_save, sender=settings.AUTH_USER_MODEL)
     def create_auth_token(sender, instance=None, created=False, **kwargs):

@@ -9,6 +9,7 @@ class Job(models.Model):
     lat = models.DecimalField(max_digits=17, decimal_places=14)
     lng = models.DecimalField(max_digits=17, decimal_places=14)
     phone_number = models.CharField(null=True, blank=False, max_length=12)
+    email = models.CharField(null=True, blank=False, max_length=50)
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL, 
         related_name='jobAuthorName',
