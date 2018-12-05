@@ -1,1 +1,1 @@
-web: newrelic-admin run-program gunicorn vot.wsgi
+web: newrelic-admin run-program gunicorn everhire.wsgi
